@@ -1,0 +1,31 @@
+POST http://localhost:5000/users HTTP/1.1
+content-type: application/json
+
+{
+    "userName":"dmin",
+    "email":"admin@admin.it",
+    "password":"ciaociao",
+    "role":"admin"
+}
+####
+GET http://localhost:5000/users
+######
+DELETE http://localhost:5000/users/63a38b466f29cea50868802a HTTP/1.1
+######
+POST http://localhost:5000/register HTTP/1.1
+content-type: application/json
+
+{
+    "userName":"xxvvx",
+    "email":"x@advvmin.it",
+    "password":"ciaociao",
+    "role":"user"
+}
+######
+POST http://localhost:5000/login HTTP/1.1
+content-type: application/json
+
+{
+    "email":"admixx@admin.it",
+    "password":"ciaociao"
+}

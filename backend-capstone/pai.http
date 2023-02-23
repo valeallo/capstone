@@ -1,0 +1,43 @@
+POST http://localhost:5000/addPai HTTP/1.1
+content-type: application/json
+
+{
+    "patientName": "Giaknni",
+    "patientLastName": "Rojssi",
+    "patientPhoneNumber": "333j3333333",
+    "patientDateOfBirth": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "patientAddress": "Via Roma 1",
+    "service": "Fisioterapia",
+    "numberOfTreatments": "10",    
+    "status": "Attivo"
+}
+######
+GET http://localhost:5000/pai HTTP/1.1
+######
+GET http://localhost:5000/pai/63dbdaa1e8d93d46417e5668 HTTP/1.1
+######
+PATCH  http://localhost:5000/pai/63b725a3c954e45c05a3d4b6 HTTP/1.1
+content-type: application/json
+
+{
+    "patientName": "Gianni",
+    "patientLastName": "Rodsi",
+    "patientPhoneNumber": "333333dd33",
+    "patientDateOfBirth": "Wed, 21 Oct 2015 18:27:50 GMT",
+    "patientAddress": "Via Roma 1",
+    "service": "Fisioterapia",
+    "numberOfTreatments": "10",    
+    "status": "Attivo"
+}
+######
+DELETE http://localhost:5000/pai/63b725a3c954e45c05a3d4b6 HTTP/1.1
+######
+POST http://localhost:5000/assistedBy/63dc004893068816e49b1b52 HTTP/1.1
+content-type: application/json
+
+{
+    "doctorName": "Mario",
+     "doctorId": "63dbdaa1e8d93d46417e5668"
+}
+######
+GET http://localhost:5000/pai/assistedBy/63dbdaa1e8d93d46417e5668 HTTP/1.1
