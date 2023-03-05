@@ -16,16 +16,16 @@ POST http://localhost:5000/register HTTP/1.1
 content-type: application/json
 
 {
-    "userName":"xxvvx",
-    "email":"x@advvmin.it",
+    "userName":"valentina",
+    "email":"Valentina@advvmin.it",
     "password":"ciaociao",
-    "role":"user"
+    "role":"admin"
 }
 ######
 POST http://localhost:5000/login HTTP/1.1
 content-type: application/json
 
 {
-    "email":"admixx@admin.it",
-    "password":"ciaociao"
+    "email":"user5@example.com",
+    "password":"password5"
 }

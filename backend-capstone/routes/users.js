@@ -135,8 +135,70 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({email: user.email}, process.env.TOKEN_SECRET, {expiresIn: '24h' })
     res.header('authorization', token).status(200).send({
       email: user.email,
-      token: token
+      token: token,
+      role: user.role,
+      user_id: user._id
     })
+    
+
+
+
+  
+    
+  });
+
+
+  router.post("/login", async (req, res) => {
+
+    const user = await Users.findOne({ email: req.body.email })
+    
+    if (!user) {
+      return res.status(404).send("Email not found"
+      );
+    }
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    if (!validPassword) {
+      return res.status(404).send( "Wrong Password"
+      );
+    }
+    const token = jwt.sign({email: user.email}, process.env.TOKEN_SECRET, {expiresIn: '24h' })
+    res.header('authorization', token).status(200).send({
+      email: user.email,
+      token: token,
+      role: user.role,
+      user_id: user._id
+    })
+    
+
+
+
+  
+    
+  });
+
+
+  router.post("/users/login", async (req, res) => {
+    try{
+    const user = await Users.findOne({ email: req.body.email })
+    
+    if (!user) {
+      return res.status(404).send("Email not found"
+      );
+    }
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    if (!validPassword) {
+      return res.status(404).send( "Wrong Password"
+      );
+    }
+    const token = jwt.sign({email: user.email}, process.env.TOKEN_SECRET, {expiresIn: '24h' })
+    res.header('authorization', token).status(200).send({
+      email: user.email,
+      token: token,
+      role: user.role,
+      user_id: user._id
+    })} catch (err) {
+        res.status(500).json({ message: "an error has occurred", error: err })
+    }
     
 
 

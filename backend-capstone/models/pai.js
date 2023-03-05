@@ -7,8 +7,12 @@ const PaiSchema = new Schema({
         type: String,
         // required: true,
     },
+    patientLastName: {
+        type: String,
+        // required: true,
+    },
     patientDateOfBirth: {
-        type: Date,
+        type: String,
        
     },
     patientPhoneNumber: {

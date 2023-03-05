@@ -7,6 +7,7 @@ const Pai = require("../models/pai");
 router.post ("/addPai", async (req, res) => {
     const newPai = new Pai({
         patientName: req.body.patientName,
+        patientLastName: req.body.patientLastName,
         patientDateOfBirth: req.body.patientDateOfBirth,
         patientPhoneNumber: req.body.patientPhoneNumber,
         patientAddress: req.body.patientAddress,
@@ -76,11 +77,12 @@ router.get("/pai/:id", async (req, res) => {
 
 router.patch("/pai/:id", async (req, res) => {
     const {id} = req.params;
-    const {patientName, patientDateOfBirth, patientPhoneNumber, patientAddress, service, numberOfTreatments, dateOfActivation, expiringDate, status} = req.body;
+    const {patientName, patientLastName, patientDateOfBirth, patientPhoneNumber, patientAddress, service, numberOfTreatments, dateOfActivation, expiringDate, status} = req.body;
     try {
 
         const updatedPai = await Pai.findByIdAndUpdate(id, {
             patientName: patientName,
+            patientLastName: patientLastName,
             patientDateOfBirth: patientDateOfBirth,
             patientPhoneNumber: patientPhoneNumber,
             patientAddress: patientAddress,
