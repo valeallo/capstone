@@ -18,26 +18,6 @@ router.get('/users', async (req, res) => {
 
 
 router.post('/users',
-    // [
-
-
-    //     check("userName")
-    //         .exists()
-    //         .withMessage("UserName si required")
-    //         .isLength({ min: 3 })
-    //         .withMessage("wrong UserName length"),
-
-    //     check("email")
-    //         .exists()
-    //         .isEmail()
-    //         .withMessage("invalid email address")
-    //         .normalizeEmail(),
-
-    //     check('password')
-    //         .exists()
-    //         .withMessage('password is required')
-
-    // ],
     async (req, res) => {
         const error = validationResult(req)
         const salt = await bcrypt.genSalt(10) // creiamo la complessita del criptaggio

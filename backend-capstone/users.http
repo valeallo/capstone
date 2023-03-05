@@ -1,14 +1,16 @@
-POST http://localhost:5000/users HTTP/1.1
+POST http://localhost:5000/addUser HTTP/1.1
 content-type: application/json
 
 {
-    "userName":"dmin",
-    "email":"admin@admin.it",
+    "username":"vasssntina",
+    "email":"Valessssina@advvmin.it",
     "password":"ciaociao",
     "role":"admin"
 }
 ####
 GET http://localhost:5000/users
+######
+GET http://localhost:5000/users/63a3910ebcb68bc60defdd15
 ######
 DELETE http://localhost:5000/users/63a38b466f29cea50868802a HTTP/1.1
 ######
@@ -16,16 +18,18 @@ POST http://localhost:5000/register HTTP/1.1
 content-type: application/json
 
 {
-    "userName":"valentina",
-    "email":"Valentina@advvmin.it",
+    "username":"vasssntina",
+    "email":"Valessssina@advvmin.it",
     "password":"ciaociao",
     "role":"admin"
 }
 ######
-POST http://localhost:5000/login HTTP/1.1
+POST http://localhost:5000/users/login HTTP/1.1
 content-type: application/json
 
 {
-    "email":"user5@example.com",
-    "password":"password5"
+    "email":"valentina@advvmin.it",
+    "password":"ciaociao"
 }
+######
+POST http://localhost:5000/assignedPai

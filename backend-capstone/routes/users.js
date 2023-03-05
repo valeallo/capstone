@@ -19,9 +19,12 @@ router.post("/users", async (req, res) => {
     const hashPassword = await bcrypt.hash(req.body.password, salt)
     const newUser = new Users({
         username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         password: hashPassword,
         role: req.body.role,
+        service: req.body.service,   
     })
     try {
         const saveUser = await newUser.save()
@@ -29,6 +32,27 @@ router.post("/users", async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: "an error has occurred", error: err })
     }
+}
+)
+
+router.post("/addUser", async (req, res) => {
+  const salt = await bcrypt.genSalt(10)
+  const hashPassword = await bcrypt.hash(req.body.password, salt)
+  const newUser = new Users({
+      username: req.body.username,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: hashPassword,
+      role: req.body.role,
+      service: req.body.service,   
+  })
+  try {
+      const saveUser = await newUser.save()
+      res.status(200).send({ message: "user saved successfully", payload: saveUser })
+  } catch (err) {
+      res.status(500).json({ message: "an error has occurred", error: err, payload: newUser })
+  }
 }
 )
 
@@ -169,11 +193,6 @@ router.post("/login", async (req, res) => {
       user_id: user._id
     })
     
-
-
-
-  
-    
   });
 
 
@@ -222,6 +241,18 @@ router.post("/login", async (req, res) => {
     }
 
     })
+
+    router.get('/users/:id', async (req, res) => {
+        const { id } = req.params
+        try {  
+          const user = await Users.findById(id)
+          if (!user) { return res.status(404).send(`user with id ${id} not found`) }
+          res.status(200).send(user)
+        } catch (err) {
+          res.status(500).json({ message: "an error has occurred", error: err })
+        }
+          
+        })
 
 
         

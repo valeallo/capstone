@@ -4,8 +4,6 @@ const Schema = mongoose.Schema
 const UserSchema = new Schema({
     username: {
         type: String,
-        unique: true,
-        // required: true,
     },
     firstName: {
         type: String,
@@ -31,6 +29,10 @@ const UserSchema = new Schema({
     role: {
         type: String,
         default: "user",
+    },
+    service: {
+        type: String,
+        // required: true,
     },
    },{
     timestamps: true})

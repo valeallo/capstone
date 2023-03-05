@@ -2,33 +2,38 @@ POST http://localhost:5000/addPai HTTP/1.1
 content-type: application/json
 
 {
-    "patientName": "Giaknni",
-    "patientLastName": "Rossi",
-    "patientPhoneNumber": "333j3333333",
-    "patientDateOfBirth": "Wed, 21 Oct 2015 18:27:50 GMT",
-    "patientAddress": "Via Roma 1",
-    "service": "Fisioterapia",
-    "numberOfTreatments": "10",    
-    "status": "Attivo"
+  "patientName": "SARA",
+  "patientLastName": "BLU",
+  "patientPhoneNumber": "333333kkkkdd33",
+  "patientDateOfBirth": "2015-10-21",
+  "patientAddress": "Via Roma 1",
+  "service": "Fisiommmterapia",
+  "dateOfActivation": "2015-10-21",
+  "expiringDate": "2015-10-21",
+  "numberOfTreatments": 10,    
+  "status": "Attivo"
 }
 ######
 GET http://localhost:5000/pai HTTP/1.1
 ######
 GET http://localhost:5000/pai/63dbdaa1e8d93d46417e5668 HTTP/1.1
 ######
-PATCH http://localhost:5000/pai/63f7c03bca9a184d14245bc2 HTTP/1.1
+PATCH http://localhost:5000/pai/6405050461b0aae2276e679a HTTP/1.1
 content-type: application/json
 
 {
-    "patientName": "Gianni",
-    "patientLastName": "Rodsi",
-    "patientPhoneNumber": "333333dd33",
-    "patientDateOfBirth": "Wed, 21 Oct 2015 18:27:50 GMT",
-    "patientAddress": "Via Roma 1",
-    "service": "Fisioterapia",
-    "numberOfTreatments": "10",    
-    "status": "Attivo"
+  "patientName": "SARA",
+  "patientLastName": "BLU",
+  "patientPhoneNumber": "333333kkkkdd33",
+  "patientDateOfBirth": "2015-10-21",
+  "patientAddress": "Via Roma 1",
+  "service": "Fisiommmterapia",
+  "dateOfActivation": "2015-10-21",
+  "expiringDate": "2010-10-21",
+  "numberOfTreatments": 10,    
+  "status": "Attivo"
 }
+
 ######
 DELETE http://localhost:5000/pai/63b725a3c954e45c05a3d4b6 HTTP/1.1
 ######
