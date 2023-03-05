@@ -34,15 +34,15 @@ const PaiSchema = new Schema({
         default: undefined,
     },
     numberOfTreatments: {
-        type: String,
+        type: Number,
         
     },
     dateOfActivation: {
-        type: Date,
+        type: String,
        
     }, 
     expiringDate: {
-        type: Date,
+        type: String,
         
     },
     status: {
