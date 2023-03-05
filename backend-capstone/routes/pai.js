@@ -79,7 +79,7 @@ router.patch("/pai/:id", async (req, res) => {
     const {patientName, patientDateOfBirth, patientPhoneNumber, patientAddress, service, numberOfTreatments, dateOfActivation, expiringDate, status} = req.body;
     try {
 
-        const updatePai = await Pai.findByIdAndUpdate(id, {
+        const updatedPai = await Pai.findByIdAndUpdate(id, {
             patientName: patientName,
             patientDateOfBirth: patientDateOfBirth,
             patientPhoneNumber: patientPhoneNumber,
@@ -90,7 +90,7 @@ router.patch("/pai/:id", async (req, res) => {
             expiringDate: expiringDate,
             status: status,
         }, {new: true})
-        res.status(200).send({message: "pai updated successfully", payload: updatePai})
+        res.status(200).send({message: "pai updated successfully", payload: updatedPai})
     }
     catch (err) {
         res.status(500).json({message: "an error has occurred", error: err})
