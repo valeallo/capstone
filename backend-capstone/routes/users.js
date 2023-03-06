@@ -50,6 +50,21 @@ router.get("/user/:id", async (req, res) => {
   }
 })
 
+router.get("/service/:service", async (req, res) => {
+    const {service} = req.params;
+    try {
+      const users = await Users.find({service: service})
+      res.status(200).send(users)
+      if (!users) {
+          res.status(404).send({message: "users not found"})
+      }
+  }
+  catch (err) {
+      res.status(500).json({message: "an error has occurred", error: err})
+  }
+})
+
+
 
 
 router.delete("/users/:id", async (req, res) => {

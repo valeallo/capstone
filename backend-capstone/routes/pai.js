@@ -44,7 +44,7 @@ router.post ("/assistedBy/:id", async (req, res) => {
     const {id} = req.params;
     const {doctorName, doctorId} = req.body; 
     try {
-        const assignDoctor = await Pai.findByIdAndUpdate(
+        const assignUser = await Pai.findByIdAndUpdate(
             id, 
             {
                 $push: {
@@ -52,7 +52,7 @@ router.post ("/assistedBy/:id", async (req, res) => {
                 }
             }, {new: true}     
         )
-        res.status(200).send({message: "doctor assigned successfully", payload: assignDoctor})
+        res.status(200).send({message: "doctor assigned successfully", payload: assignUser})
 
     }
     catch (err) {

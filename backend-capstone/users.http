@@ -2,13 +2,15 @@ POST http://localhost:5000/addUser HTTP/1.1
 content-type: application/json
 
 {
-    "username":"lalalala",
-    "email":"io@email.it",
-    "password":"ciaociao",
+    "username":"lssalassslala",
+    "email":"ikkssko@email.it",
+    "password":"ciaossciao",
     "role":"admin"
 }
 ####
 GET http://localhost:5000/users
+######
+GET http://localhost:5000/user/640541f8e36dc1fdca383eb3
 ######
 GET http://localhost:5000/users/63a3910ebcb68bc60defdd15
 ######
@@ -18,9 +20,9 @@ POST http://localhost:5000/register HTTP/1.1
 content-type: application/json
 
 {
-    "username":"vasssntina",
-    "email":"Valessssina@advvmin.it",
-    "password":"ciaociao",
+    "username":"vaddddsssntina",
+    "email":"Valesddddsssina@advvmin.it",
+    "password":"cidaociao",
     "role":"admin"
 }
 ######
