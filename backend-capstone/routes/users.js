@@ -35,26 +35,22 @@ router.post("/users", async (req, res) => {
 }
 )
 
-router.post("/addUser", async (req, res) => {
-  const salt = await bcrypt.genSalt(10)
-  const hashPassword = await bcrypt.hash(req.body.password, salt)
-  const newUser = new Users({
-      username: req.body.username,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      password: hashPassword,
-      role: req.body.role,
-      service: req.body.service,   
-  })
+
+router.get("/user/:id", async (req, res) => {
+  const {id} = req.params;
   try {
-      const saveUser = await newUser.save()
-      res.status(200).send({ message: "user saved successfully", payload: saveUser })
-  } catch (err) {
-      res.status(500).json({ message: "an error has occurred", error: err, payload: newUser })
+      const user = await Users.findById(id)
+      res.status(200).send(user)
+      if (!user) {
+          res.status(404).send({message: "user not found"})
+      }
   }
-}
-)
+  catch (err) {
+      res.status(500).json({message: "an error has occurred", error: err})
+  }
+})
+
+
 
 router.delete("/users/:id", async (req, res) => {
     const { id } = req.params
