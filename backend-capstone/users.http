@@ -3,8 +3,8 @@ content-type: application/json
 
 {
     "username":"lssalassslala",
-    "email":"ikkssko@email.it",
-    "password":"ciaossciao",
+    "email":"Vasssina@advvmin.it",
+    "password":"cidaociao",
     "role":"admin"
 }
 ####
@@ -20,8 +20,8 @@ POST http://localhost:5000/register HTTP/1.1
 content-type: application/json
 
 {
-    "username":"vaddddsssntina",
-    "email":"Valesddddsssina@advvmin.it",
+    "username":"vasssntina",
+    "email":"vasssina@admin.it",
     "password":"cidaociao",
     "role":"admin"
 }
@@ -30,8 +30,8 @@ POST http://localhost:5000/users/login HTTP/1.1
 content-type: application/json
 
 {
-    "email":"Vsssa@advvmin.it",
-    "password":"ciaociao"
+    "email":"vasssina@admin.it",
+    "password":"cidaociao"
 }
 ######
 POST http://localhost:5000/assignedPai
